@@ -16,6 +16,7 @@ In your dev environment set up Node.js and `npm`. Then do `sudo npm install -g r
 2. Add `REACTIFY_BUNDLE_URL` to `settings.py`. This is `STATIC_URL` pointing to the bundle file specified in `REACTIFY_BUNDLE_PATH`.
 3. Add `REACTIFY_SRC` to `settings.py`. This will point to the root directory of your CommonJS modules.
 4. Add `REACTIFY_MODULE_IDS` to `settings.py`. This is the list of React component module IDs you want to call from Django. **NOTE:** this is relative to `REACTIFY_SRC` and must begin with `./`.
+5. Add `django_reactify` to `INSTALLED_APPS` in `settings.py`.
 
 ### 3. Write your code
 
