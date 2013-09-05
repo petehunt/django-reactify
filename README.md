@@ -14,18 +14,16 @@ In your dev environment set up Node.js and `npm`. Then do `sudo npm install -g r
 
 1. Add `REACTIFY_BUNDLE_PATH` to `settings.py`. This is a path to a JS file in one of Django's `STATICFILES_DIRS` that `reactify` will create.
 2. Add `REACTIFY_BUNDLE_URL` to `settings.py`. This is `STATIC_URL` pointing to the bundle file specified in `REACTIFY_BUNDLE_PATH`.
+3. Add `REACTIFY_SRC` to `settings.py`. This will point to the root directory of your CommonJS modules.
+4. Add `REACTIFY_MODULE_IDS` to `settings.py`. This is the list of React component module IDs you want to call from Django. **NOTE:** this is relative to `REACTIFY_SRC` and must begin with `./`.
 
-### 2. Write your code
+### 3. Write your code
+
+Run `python manage.py reactify` to build your JS bundles. This will watch for changes in `DEBUG` and will minify in prod.
 
 Write your code using React and CommonJS modules. You can require React by doing `require('React')` or `npm install` it yourself.
 
-To bundle your JS you need to run `reactify`. You'll need to provide a list of **MODULE_ID**s that you want to call from Django.
-
-Run `reactify -o **REACTIFY_BUNDLE_PATH** -b **PATH_TO_YOUR_SOURCE** **MODULE_ID...**` to do this. You can add `-w` and `-d` flags in development.
-
-### 3. Render a React component from Django
-
-Create your views like this:
+Create your Python views like this:
 
 ```python
 import reactify
