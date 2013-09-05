@@ -21,14 +21,15 @@ In your dev environment set up Node.js and `npm`. Then do `sudo npm install -g r
 
 Run `python manage.py reactify` to build your JS bundles. This will watch for changes in `DEBUG` and will minify in prod.
 
-Write your code using React and CommonJS modules. You can require React by doing `require('React')` or `npm install` it yourself.
+Write your code using React and CommonJS modules. You can require React by doing `require('React')` -- for now, **DO NOT** `npm install react-tools`.
 
 Create your Python views like this:
 
 ```python
-import reactify
+import django_reactify
+
 def home(request):
-    return reactify.render_component(
+    return django_reactify.render_to_response(
         'MODULE_ID',
         prop='value'
     )
