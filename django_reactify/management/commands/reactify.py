@@ -10,6 +10,8 @@ class Command(BaseCommand):
             flags = ''
             if settings.DEBUG:
                 flags = ' -w -d'
+                print 'Watching for changes...'
+                print
 
             subprocess.check_call(
                 'reactify%s -o %r -b %r %s' % (
