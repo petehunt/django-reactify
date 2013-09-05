@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='django-reactify',
@@ -8,5 +8,5 @@ setup(
     description='Use React from Django',
     author='Pete Hunt',
     author_email='floydophone@gmail.com',
-    py_modules=['reactify']
+    packages=['django_reactify']
 )

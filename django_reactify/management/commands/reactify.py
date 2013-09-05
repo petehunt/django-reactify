@@ -16,11 +16,11 @@ class Command(BaseCommand):
                     flags,
                     settings.REACTIFY_BUNDLE_PATH,
                     settings.REACTIFY_SRC,
-                    ' '.join(repr(module_id) for module in settings.REACTIFY_MODULE_IDS)
+                    ' '.join(repr(module_id) for module_id in settings.REACTIFY_MODULE_IDS)
                 ),
                 shell=True
             )
-        except e:
+        except:
             raise CommandError(
-                'There was an error running reactify. Be sure it is installed and all settings are configured. The error was: ' + str(e)
+                'There was an error running reactify. Be sure it is installed and all settings are configured.'
             )
