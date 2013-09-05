@@ -28,5 +28,5 @@ class DjangoReactify(object):
 
 _instance = DjangoReactify(settings.REACTIFY_BUNDLE_PATH, settings.REACTIFY_BUNDLE_URL)
 
-def render_component(component_module, **props):
+def render_to_response(component_module, **props):
     return HttpResponse(_instance.render_page(component_module, props))
