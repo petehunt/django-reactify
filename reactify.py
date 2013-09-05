@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import execjs
 import json
 
-class DjangoReact(object):
+class DjangoReactify(object):
     def __init__(self, local_bundle, bundle_url):
         self.local_bundle = local_bundle
         self.bundle_url = bundle_url
@@ -26,7 +26,7 @@ class DjangoReact(object):
             )
         )
 
-_instance = DjangoReact(settings.REACTIFY_BUNDLE_PATH, settings.REACTIFY_BUNDLE_URL)
+_instance = DjangoReactify(settings.REACTIFY_BUNDLE_PATH, settings.REACTIFY_BUNDLE_URL)
 
 def render_component(component_module, **props):
     return HttpResponse(_instance.render_page(component_module, props))
